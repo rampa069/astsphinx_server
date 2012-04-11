@@ -3,11 +3,18 @@ Asterisk - Sphinx Intergration
 (c) 2012, Ramon Martinez <rampa@encomix.org>
 
 
-## Asterisk - Sphinx Intergration SERVER ##
+== Asterisk - Sphinx Intergration SERVER ==
 
 The full Sphinx and Asterisk integration consists of a server peice, which is this
 software.  Also required is the patch to Asterisk to provide the Generic Speech API
 with the "Sphinx" engine plugin.
+
+
+==INSTALL==
+
+make && make install && make samples
+
+
 
 The latest versions of the original  software should be available at:
 
