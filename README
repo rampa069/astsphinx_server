@@ -1,0 +1,49 @@
+Asterisk - Sphinx Intergration 
+(c) 2009, Christopher Jansen scribblej@scribblej.com
+(c) 2012, Ramon Martinez <rampa@encomix.org>
+
+
+## Asterisk - Sphinx Intergration SERVER ##
+
+The full Sphinx and Asterisk integration consists of a server peice, which is this
+software.  Also required is the patch to Asterisk to provide the Generic Speech API
+with the "Sphinx" engine plugin.
+
+The latest versions of the original  software should be available at:
+
+http://scribblej.com/
+
+
+The latest version of my version (jsgf grammars) is available at:
+
+https://github.com/rampa069/astsphinx_server (server side)
+                      
+                        and
+
+https://github.com/rampa069/astsphinx_client (client side)
+
+
+## USE ##
+
+Requires you to have a configuration file, and one or more grammar files
+plus the associated dictionary.
+
+ see config.en and config.es in the source tree.
+
+
+To run this program from the commandline, the syntax is as follows:
+
+./astsphinx 10069 config.es digits-es-2 digits-es-4 digits-es-6 digits-es-8 2>/dev/null
+
+"10069" is the port number to listen on,
+
+"config.es" is the name of the config file, as illustrated above
+digits-es-* are the names of grammars to load and make
+  available to Asterisk.  Note the grammar in the configfile will 
+  not be made available to Asterisk unless it is also listed on the
+  commandline.
+
+"2>/dev/null" redirects PocketSphinx-specific output to /dev/null.  
+  There can be a /lot/ of this output, I only suggest removing this
+  if you are having problems.
+
