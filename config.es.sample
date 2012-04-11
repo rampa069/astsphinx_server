@@ -1,0 +1,9 @@
+-dict /opt/etc/astsphinx/dict.es
+-hmm /opt/sphinx/es_ES/
+-jsgf /opt/etc/astsphinx/grammar/digits-es-4.gram
+-adcin
+-samprate	8000
+-frate 		50
+-silprob	0.005
+-bestpath	yes
+-debug	255
