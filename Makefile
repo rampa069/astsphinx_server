@@ -21,7 +21,7 @@ all: _all
 	@echo " +               make install                +"  
 	@echo " +-------------------------------------------+" 
 
-_all: astsphinx
+_all: astsphinx sphx_test
 
 
 astsphinx.o: astsphinx.c
@@ -33,12 +33,16 @@ prefork.o: prefork.c
 astsphinx: astsphinx.o prefork.o
 	$(CC) `pkg-config pocketsphinx --cflags --libs` -o astsphinx astsphinx.o prefork.o
 
+sphx_test: sphx_test.c
+	$(CC) `pkg-config pocketsphinx --cflags --libs` -o sphx_test sphx_test.c
+	        
 
 clean:
-	rm -f astsphinx  *.d *.o *.so *~
+	rm -f astsphinx  sphx_test *.d *.o *.so *~
 
 install: _all
 	$(INSTALL) -m 755 astsphinx $(DESTDIR)
+	$(INSTALL) -m 755 sphx_test $(DESTDIR)
 	
 	@echo " +--------- Server Installation Complete ------+"  
 	@echo " +                                             +"

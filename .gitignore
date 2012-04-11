@@ -1,3 +1,4 @@
 *.o
 astsphinx
+sphx_test
 *~
