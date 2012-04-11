@@ -15,8 +15,13 @@
 int ARGC;
 char **ARGV;
 int rv;
+
+
+
 char grammdir[255]="/opt/etc/astsphinx/grammar/";
 char tempFile[255];
+
+
 
 static const char *strtolower( const char *str )
  {
@@ -75,6 +80,11 @@ void testserver(int sock)
   printf("Initializing grammars.\n");
 
   int x;
+
+#if defined(GRAMDIR)
+  strcpy(grammdir,GRAMDIR);
+#endif 
+
 
   for(x=3; x<ARGC; x++,fn++)
   {

@@ -4,7 +4,7 @@
 
 INSTALL=install
 ETCDIR=/opt/etc/astsphinx
-GRAMDIR=/opt/etc/astsphinx/grammar
+GRAMDIR=\"/opt/etc/astsphinx/grammar/\"
 DESTDIR=/opt/bin
 CC=gcc
 OPTIMIZE=-O2
@@ -25,7 +25,7 @@ _all: astsphinx
 
 
 astsphinx.o: astsphinx.c
-	$(CC) $(CFLAGS) $(DEBUG) $(OPTIMIZE) `pkg-config pocketsphinx --cflags --libs` -c -o astsphinx.o astsphinx.c
+	$(CC) $(CFLAGS) $(DEBUG) $(OPTIMIZE) `pkg-config pocketsphinx --cflags --libs` -DGRAMDIR=$(GRAMDIR) -c -o astsphinx.o astsphinx.c
 
 prefork.o: prefork.c
 	$(CC) $(CFLAGS) $(DEBUG) $(OPTIMIZE) `pkg-config pocketsphinx --cflags --libs` -c -o prefork.o prefork.c
