@@ -21,7 +21,7 @@ if (argc==1)
 /* Initializing of the configuration */
   config = cmd_ln_init(NULL, ps_args(), TRUE,
                        "-samprate", "8000",
-                       "-jsgf", "/opt/etc/astsphinx/grammar/digits-es-4.gram",
+                       "-jsgf", "/opt/etc/astsphinx/grammar/digits-es-8.gram",
                        "-dict", "/opt/etc/astsphinx/dict.es",
                        "-hmm", "/opt/sphinx/es_ES/",
                        NULL);
