@@ -41,7 +41,7 @@ clean:
 	rm -f astsphinx  sphx_test *.d *.o *.so *~
 
 install: _all
-        mkdir -p $(DESTDIR)
+	mkdir -p $(DESTDIR)
 	$(INSTALL) -m 755 astsphinx $(DESTDIR)
 	$(INSTALL) -m 755 sphx_test $(DESTDIR)
 	
@@ -71,21 +71,21 @@ samples:
 		fi ; \
 		$(INSTALL) -m 644 $$x $(ETCDIR)/`basename $$x .sample` ;\
 	done
-	mkdir -p $(GRAMDIR)
+	mkdir -p $(ETCDIR)/grammar
 	for x in grammar/*.sample; do \
-		if [ -f $(GRAMDIR)/`basename $$x .sample` ]; then \
+		if [ -f $(ETCDIR)/grammar/`basename $$x .sample` ]; then \
 			if [ "$(OVERWRITE)" = "y" ]; then \
 				if cmp -s $(ETCDIR)/`basename $$x .sample` $$x ; then \
 					echo "Config file $$x is unchanged"; \
 					continue; \
 				fi ; \
-				mv -f $(GRAMDIR)/`basename $$x .sample` $(GRAMDIR)/`basename $$x .sample`.old ; \
+				mv -f $(ETCDIR)/grammar/`basename $$x .sample` $(ETCDIR)/grammar/`basename $$x .sample`.old ; \
 			else \
 				echo "Skipping config file $$x"; \
 				continue; \
 			fi ;\
 		fi ; \
-		$(INSTALL) -m 644 $$x $(GRAMDIR)/`basename $$x .sample` ;\
+		$(INSTALL) -m 644 $$x $(ETCDIR)/grammar/`basename $$x .sample` ;\
 	done
 
 ifneq ($(wildcard .*.d),)
