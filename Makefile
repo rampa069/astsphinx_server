@@ -41,6 +41,7 @@ clean:
 	rm -f astsphinx  sphx_test *.d *.o *.so *~
 
 install: _all
+        mkdir -p $(DESTDIR)
 	$(INSTALL) -m 755 astsphinx $(DESTDIR)
 	$(INSTALL) -m 755 sphx_test $(DESTDIR)
 	
