@@ -12,23 +12,19 @@ main(int argc, char *argv[])
   int32 score;
 
 
-if (argc==1)
+if (argc!=3)
   {
-   printf("Usage: %s <file.wav>\n",argv[0]);
+   printf("Usage: %s <config> <file.wav>\n",argv[0]);
    return (-1);
   }
 
-/* Initializing of the configuration */
-  config = cmd_ln_init(NULL, ps_args(), TRUE,
-                       "-samprate", "8000",
-                       "-jsgf", "/opt/etc/astsphinx/grammar/digits-es-8.gram",
-                       "-dict", "/opt/etc/astsphinx/dict.es",
-                       "-hmm", "/opt/sphinx/es_ES/",
-                       NULL);
+
+  config = cmd_ln_parse_file_r(NULL, ps_args(), argv[1], FALSE);
+    
   ps = ps_init(config);
 
 /* Open audio file and start feeding it into the decoder */
-  fh = fopen(argv[1], "rb");
+  fh = fopen(argv[2], "rb");
   rv = ps_start_utt(ps, "goforward");
   while (!feof(fh))
     {
